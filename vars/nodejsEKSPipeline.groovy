@@ -6,7 +6,7 @@ def call(Map configMap){
             } 
         }
         environment {
-            appVersion = "1.7.0"
+            appVersion = ""
             acc_id = "315281578625"
             region = "us-east-1"
             project = "roboshop"
