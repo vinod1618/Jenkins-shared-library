@@ -114,13 +114,9 @@ def call(Map configMap){
             stage('Build Image') {
                 steps {
                 script{
-                        withAWS(credentials: 'aws-creds', region: "${region}") {
-                            // Commands here have AWS authentication
-                            sh """
-                                docker build -t ${acc_id}.dkr.ecr.${region}.amazonaws.com/${project}/${component}:${appVersion} .
-                                docker push ${acc_id}.dkr.ecr.${region}.amazonaws.com/${project}/${component}:${appVersion}
-                            """
-                        }
+                        sh """
+                            docker build -t ${acc_id}.dkr.ecr.${region}.amazonaws.com/${project}/${component}:${appVersion} .
+                        """
                     }
                 }
             }
