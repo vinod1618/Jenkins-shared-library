@@ -9,8 +9,8 @@ def call(Map configMap){
             appVersion = "1.7.0"
             acc_id = "315281578625"
             region = "us-east-1"
-            project = configMap.get(project)
-            component = configMap.get(component)
+            project = "roboshop"
+            component = "catalogue"
         }
         options {
             //disableConcurrentBuilds()
