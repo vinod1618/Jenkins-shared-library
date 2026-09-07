@@ -29,7 +29,7 @@ def call(Map configMap){
                         // Access fields directly
                         appVersion = packageJson.version
                         echo "Building version ${appVersion}"
-                        env
+                        sh 'printenv'
                     }
                 }
             }
