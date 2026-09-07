@@ -45,9 +45,13 @@ def call(Map configMap){
             stage('unit test') {
                 steps {
                     script{
-                        sh """
-                            npm test
-                        """ 
+                        def testResult = sh(script: 'npm test', returnStatus: true)
+                        if (testResult != 0) {
+                            utils.updateCommitStatus('failure', 'Unit tests failed', 'unit-tests')
+                            error "Unit tests failed."
+                        } else {
+                            utils.updateCommitStatus('success', 'Unit tests passed', 'unit-tests')
+                        }
                     }
                 }
             }
